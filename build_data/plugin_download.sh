@@ -27,6 +27,13 @@ if [[ "${WAR_URL}" == *\.zip ]]; then
     curl --progress-bar -fLvo "${destination}" "${WAR_URL}" || exit 1
 fi
 
+# Download Jetty Services
+curl -vfLo /work/required_plugins/jetty-servlets.jar https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlets/11.0.9/jetty-servlets-11.0.9.jar
+
+# Download jetty-util
+curl -vfLo /work/required_plugins/jetty-util.jar https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/11.0.9/jetty-util-11.0.9.jar
+
+
 
 # Download everything!
 for attempt in {1..5}; do
